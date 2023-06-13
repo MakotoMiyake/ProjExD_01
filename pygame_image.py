@@ -9,9 +9,11 @@ def main():
     bg_img = pg.image.load("ex01/fig/pg_bg.jpg")
     kk_img = pg.image.load("ex01/fig/3.png")
     kk_img = pg.transform.flip(kk_img, True, False)
-    kk_img_r = pg.transform.rotozoom(kk_img, 10, 1.0)
-    # kk_imgとkk_img_rを要素とするリストを作成
-    kk_imgs = [kk_img, kk_img_r]
+    kk_imgs = []
+    for i in range(10):
+        kk_imgs.append(pg.transform.rotozoom(kk_img, i, 1.0))
+    for j in range(10, 0, -1):
+        kk_imgs.append(pg.transform.rotozoom(kk_img, j, 1.0))
 
     
     tmr = 0
@@ -22,8 +24,8 @@ def main():
 
         screen.blit(bg_img, [-bg_x, 0])
         screen.blit(bg_img, [1600-bg_x, 0])
-        # 横300,縦200の位置にkk_imgsを描画　交互に表示
-        screen.blit(kk_imgs[tmr%2], [300, 200])
+
+        screen.blit(kk_imgs[tmr%20], [300, 200])
         pg.display.update()
         tmr += 1        
         clock.tick(100)
