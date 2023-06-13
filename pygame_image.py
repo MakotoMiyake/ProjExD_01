@@ -1,7 +1,6 @@
 import sys
 import pygame as pg
 
-angle = 10
 
 def main():
     pg.display.set_caption("はばたけ！こうかとん")
@@ -10,6 +9,9 @@ def main():
     bg_img = pg.image.load("ex01/fig/pg_bg.jpg")
     kk_img = pg.image.load("ex01/fig/3.png")
     kk_img = pg.transform.flip(kk_img, True, False)
+    kk_img_r = pg.transform.rotozoom(kk_img, 10, 1.0)
+    # kk_imgとkk_img_rを要素とするリストを作成
+    kk_imgs = [kk_img, kk_img_r]
 
     
     tmr = 0
