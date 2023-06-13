@@ -15,15 +15,20 @@ def main():
 
     
     tmr = 0
+    bg_x = 0
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
 
-        screen.blit(bg_img, [0, 0])
+        screen.blit(bg_img, [-bg_x, 0])
+        screen.blit(bg_img, [1600-bg_x, 0])
+        # 横300,縦200の位置にkk_imgsを描画　交互に表示
         screen.blit(kk_imgs[tmr%2], [300, 200])
         pg.display.update()
         tmr += 1        
-        clock.tick(10)
+        clock.tick(100)
+        bg_x += 1
+        if bg_x >= 1600: bg_x = 0
 
 
 if __name__ == "__main__":
