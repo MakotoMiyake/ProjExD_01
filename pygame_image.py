@@ -30,7 +30,7 @@ def main():
         screen.blit(kk_imgs[tmr%20], [300, 200])
         pg.display.update()
         tmr += 1        
-        clock.tick(200)
+        clock.tick(100)
         bg_x += 1
         if bg_x >= 3200: bg_x = 0
 
